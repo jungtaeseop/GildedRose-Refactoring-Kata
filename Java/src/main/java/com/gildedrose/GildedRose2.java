@@ -4,14 +4,14 @@ import java.util.List;
 
 public class GildedRose2 {
 
-    List<Item> items;
+    List<Item2> items;
 
-    public GildedRose2(List<Item> items){
+    public GildedRose2(List<Item2> items){
         this.items = items;
     }
 
     public void updateQuality() {
-        for (Item item : items) {
+        for (Item2 item : items) {
             if (!item.name.equals("Aged Brie")
                 && !item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
                 // Quality 값은 결코 음수 안됨 , 오류 값이 들어 오면 오류 추가
@@ -63,12 +63,6 @@ public class GildedRose2 {
                     }
                 }
             }
-        }
-    }
-
-    public void updateQuality_refecter() {
-        for(Item item: items){
-
         }
     }
 
