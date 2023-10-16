@@ -1,4 +1,4 @@
-package com.gildedrose.StrategyPattern.context;
+package com.gildedrose.fectory.context;
 
 import com.gildedrose.Item;
 import com.gildedrose.Item2;

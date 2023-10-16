@@ -2,9 +2,11 @@ package com.gildedrose;
 
 import com.gildedrose.StrategyPattern.strategyInterface.AgedBrieGildedRoseManagement;
 import com.gildedrose.StrategyPattern.strategyInterface.BasicGildedRoseManagement;
-import com.gildedrose.StrategyPattern.context.GildedRoseStrategy;
+import com.gildedrose.StrategyPattern.context.GildedRoseStrategy2;
 import com.gildedrose.StrategyPattern.otherItem2.AgedBrieItem2;
 import com.gildedrose.StrategyPattern.otherItem2.Basic2;
+import com.gildedrose.fectory.Management.InventoryManagement;
+import com.gildedrose.fectory.Management.SulfurasInventoryManagement;
 import com.gildedrose.fectory.otherItem.AgedBrieItem;
 import com.gildedrose.fectory.otherItem.Basic;
 import org.junit.jupiter.api.DisplayName;
@@ -36,9 +38,12 @@ class GildedRoseTest {
             ,new AgedBrieItem("Aged Brie", 2, 0,new AgedBrieGildedRoseManagement())
         };
 
-        GildedRoseStrategy gildedRoseStrategy = new GildedRoseStrategy();
+        GildedRoseStrategy2 gildedRoseStrategy2 = new GildedRoseStrategy2();
 
-        gildedRoseStrategy.updateQuality(items);
+        InventoryManagement inventoryManagement = new SulfurasInventoryManagement();
+        /*inventoryManagement.updateQuality();*/
+
+        gildedRoseStrategy2.updateQuality(items);
 
         assertThat(9).isEqualTo(items[0].quality);
         assertThat(9).isEqualTo(items[0].sellIn);
@@ -56,9 +61,9 @@ class GildedRoseTest {
 
         List<Item2> items = Arrays.asList(item2_1,item2_2);
 
-        GildedRoseStrategy gildedRoseStrategy = new GildedRoseStrategy();
+        GildedRoseStrategy2 gildedRoseStrategy2 = new GildedRoseStrategy2();
 
-        gildedRoseStrategy.updateQuality2(items);
+        gildedRoseStrategy2.updateQuality2(items);
 
         assertThat(9).isEqualTo(items.get(0).quality);
         assertThat(9).isEqualTo(items.get(0).sellIn);

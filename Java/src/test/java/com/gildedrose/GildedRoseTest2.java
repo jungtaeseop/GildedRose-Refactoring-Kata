@@ -1,10 +1,15 @@
 package com.gildedrose;
 
+import com.gildedrose.StrategyPattern.otherItem2.AgedBrieItem2;
+import com.gildedrose.StrategyPattern.otherItem2.Sulfuras2;
+import com.gildedrose.StrategyPattern.strategyInterface.AgedBrieGildedRoseManagement;
 import com.gildedrose.StrategyPattern.strategyInterface.BasicGildedRoseManagement;
-import com.gildedrose.StrategyPattern.context.GildedRoseStrategy;
+import com.gildedrose.StrategyPattern.context.GildedRoseStrategy2;
 import com.gildedrose.StrategyPattern.otherItem2.Basic2;
+import com.gildedrose.StrategyPattern.strategyInterface.SulfurasGildedRoseManagement;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.shadow.com.univocity.parsers.annotations.Nested;
 
 import java.util.Arrays;
 import java.util.List;
@@ -22,7 +27,7 @@ public class GildedRoseTest2 {
         //when
         List<Item2> items = Arrays.asList(item);
 
-        GildedRoseStrategy app = new GildedRoseStrategy();
+        GildedRoseStrategy2 app = new GildedRoseStrategy2();
         app.updateQuality2(items);
 
         //then
@@ -40,8 +45,8 @@ public class GildedRoseTest2 {
         List<Item2> items = Arrays.asList(item);
 
         //when
-        GildedRoseStrategy gildedRoseStrategy = new GildedRoseStrategy();
-        gildedRoseStrategy.updateQuality2(items);
+        GildedRoseStrategy2 gildedRoseStrategy2 = new GildedRoseStrategy2();
+        gildedRoseStrategy2.updateQuality2(items);
 
         //then
         assertThat(48).isEqualTo(items.get(0).getQuality());
@@ -58,8 +63,8 @@ public class GildedRoseTest2 {
         List<Item2> items = Arrays.asList(item,item2);
 
         //when
-        GildedRoseStrategy gildedRoseStrategy = new GildedRoseStrategy();
-        gildedRoseStrategy.updateQuality2(items);
+        GildedRoseStrategy2 gildedRoseStrategy2 = new GildedRoseStrategy2();
+        gildedRoseStrategy2.updateQuality2(items);
 
         //then
         assertThat(0).isEqualTo(items.get(0).quality);
@@ -69,22 +74,19 @@ public class GildedRoseTest2 {
         assertThat(-1).isEqualTo(items.get(1).sellIn);
     }
 
-    /*@DisplayName("\"Aged Brie\"(오래된 브리치즈)은(는) 시간이 지날수록 Quality 값이 올라갑니다.")
+    @Nested
+
+    @DisplayName("\"Aged Brie\"(오래된 브리치즈)은(는) 시간이 지날수록 Quality 값이 올라갑니다.")
     @Test
     public void Aged_Brie는_시간이_지날수록_Quality_값이_올라갑니다(){
         //given
-        Item2 item = Item2.itemCreate()
-            .name("Aged Brie")
-            .quality(49)
-            .sellIn(1)
-            .build();
+        Item2 item = new AgedBrieItem2("Aged Brie",1,49,new AgedBrieGildedRoseManagement());
 
-        List<Item2> items = new ArrayList<>();
-        items.add(item);
+        List<Item2> items = Arrays.asList(item);
 
         //when
-        GildedRose2 gildedRose2 = new GildedRose2(items);
-        gildedRose2.updateQuality();
+        GildedRoseStrategy2 gildedRoseStrategy2 = new GildedRoseStrategy2();
+        gildedRoseStrategy2.updateQuality2(items);
 
         //then
         assertThat(50).isEqualTo(items.get(0).quality);
@@ -95,18 +97,13 @@ public class GildedRoseTest2 {
     @Test
     public void Aged_Brie는_시간이_지날수록_Quality_값이_max(){
         //given
-        Item2 item = Item2.itemCreate()
-            .name("Aged Brie")
-            .quality(50)
-            .sellIn(0)
-            .build();
+        Item2 item = new AgedBrieItem2("Aged Brie", 0,50,new AgedBrieGildedRoseManagement());
 
-        List<Item2> items = new ArrayList<>();
-        items.add(item);
+        List<Item2> items = Arrays.asList(item);
 
         //when
-        GildedRose2 gildedRose2 = new GildedRose2(items);
-        gildedRose2.updateQuality();
+        GildedRoseStrategy2 gildedRoseStrategy2 = new GildedRoseStrategy2();
+        gildedRoseStrategy2.updateQuality2(items);
 
         //then
         assertThat(50).isEqualTo(items.get(0).quality);
@@ -117,18 +114,13 @@ public class GildedRoseTest2 {
     @Test
     public void Quality_값은_50를_초과_할수_없음(){
         //given
-        Item2 item = Item2.itemCreate()
-            .name("Aged Brie")
-            .quality(50)
-            .sellIn(1)
-            .build();
+        Item2 item = new AgedBrieItem2("Aged Brie",1,50,new AgedBrieGildedRoseManagement());
 
-        List<Item2> items = new ArrayList<>();
-        items.add(item);
+        List<Item2> items = Arrays.asList(item);
 
         //when
-        GildedRose2 gildedRose2 = new GildedRose2(items);
-        gildedRose2.updateQuality();
+        GildedRoseStrategy2 gildedRoseStrategy2 = new GildedRoseStrategy2();
+        gildedRoseStrategy2.updateQuality2(items);
 
         //then
         assertThat(50).isEqualTo(items.get(0).quality);
@@ -139,24 +131,19 @@ public class GildedRoseTest2 {
     @Test
     public void Sulfuras는_전설의_아이템이므로_반드시_판매될_필요도_없고_Quality_값도_떨어지지_않음(){
         //given
-        Item2 item = Item2.itemCreate()
-            .name("Sulfuras, Hand of Ragnaros")
-            .quality(10)
-            .sellIn(0)
-            .build();
+        Item2 item = new Sulfuras2("Sulfuras, Hand of Ragnaros",0,10,new SulfurasGildedRoseManagement());
 
-        List<Item2> items = new ArrayList<>();
-        items.add(item);
+        List<Item2> items = Arrays.asList(item);
 
         //when
-        GildedRose2 gildedRose2 = new GildedRose2(items);
-        gildedRose2.updateQuality();
+        GildedRoseStrategy2 gildedRoseStrategy2 = new GildedRoseStrategy2();
+        gildedRoseStrategy2.updateQuality2(items);
 
         //then
         assertThat(10).isEqualTo(items.get(0).quality);
         assertThat(0).isEqualTo(items.get(0).sellIn);
     }
-
+/*
     @DisplayName("\"Backstage passes(백스테이지 입장권)\"는 \"Aged Brie\"와 유사하게 " +
         "SellIn 값에 가까워 질수록 Quality 값이 상승하고, 10일 부터는 매일 2 씩 증가하다, " +
         "5일 부터는이 되면 매일 3 씩 증가하지만, 콘서트 종료 후에는 0으로 떨어집니다.")
