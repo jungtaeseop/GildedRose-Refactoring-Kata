@@ -6,13 +6,13 @@ import lombok.Getter;
 
 @Getter
 public class AgedBrieItem2 extends Item2 {
-    private GildedRoseManagement gildedRoseManagement;
     public AgedBrieItem2(String name, int sellIn, int quality, GildedRoseManagement gildedRoseManagement){
-        super(name,sellIn,quality);
-        this.gildedRoseManagement = gildedRoseManagement;
+        super(name,sellIn,quality,gildedRoseManagement);
     }
 
-    public GildedRoseManagement getInventoryManagement(){
-        return this.gildedRoseManagement;
+    @Override
+    public GildedRoseManagement getGildedRoseManagement() {
+        return super.gildedRoseManagement;
     }
+
 }

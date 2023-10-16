@@ -16,10 +16,13 @@ public abstract class Item2 {
 
     public int quality;
 
-    public Item2(String name, int sellIn, int quality) {
+    protected GildedRoseManagement gildedRoseManagement;
+
+    public Item2(String name, int sellIn, int quality, GildedRoseManagement gildedRoseManagement) {
         this.name = name;
         this.sellIn = sellIn;
         this.quality = quality;
+        this.gildedRoseManagement = gildedRoseManagement;
     }
    @Override
    public String toString() {

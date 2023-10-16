@@ -37,9 +37,7 @@ public class GildedRoseStrategy2 {
 
     public void updateQuality2(List<Item2> items){
         for(Item2 item : items){
-            gildedRoseManagement = item.getGildedRoseManagement();
-            gildedRoseManagement.updateSellInAndQualityDaily2(item);
+            item.getGildedRoseManagement().updateSellInAndQualityDaily2(item);
         }
-
     }
 }

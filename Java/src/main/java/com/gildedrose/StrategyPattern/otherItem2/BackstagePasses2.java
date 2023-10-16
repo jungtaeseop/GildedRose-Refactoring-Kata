@@ -8,18 +8,13 @@ import lombok.Setter;
 @Setter
 @Getter
 public class BackstagePasses2 extends Item2 {
-    private GildedRoseManagement gildedRoseManagement;
 
     public BackstagePasses2(String name, int sellIn, int quality, GildedRoseManagement gildedRoseManagement){
-        super(name, sellIn, quality);
-        this.gildedRoseManagement = gildedRoseManagement;
+        super(name, sellIn, quality,gildedRoseManagement);
     }
 
-    public void setGildedRoseManagement(GildedRoseManagement gildedRoseManagement) {
-        this.gildedRoseManagement = gildedRoseManagement;
-    }
-
+    @Override
     public GildedRoseManagement getGildedRoseManagement(){
-        return this.gildedRoseManagement;
+        return super.gildedRoseManagement;
     }
 }
