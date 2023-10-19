@@ -4,7 +4,7 @@ import com.gildedrose.Item;
 
 public interface InventoryManagement {
 
-    public void updateQuality(Item[] items);
+    public void updateQuality(Item item);
     default void decrementSellInAndQualityDaily(Item item) {
         if(item.quality > 0){
             item.quality--;
