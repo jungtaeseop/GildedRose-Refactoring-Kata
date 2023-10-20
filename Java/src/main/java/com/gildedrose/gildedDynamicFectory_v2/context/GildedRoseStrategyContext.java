@@ -8,10 +8,9 @@ import lombok.Setter;
 @Setter
 public class GildedRoseStrategyContext {
 
-    DynamicSupplierFactory dynamicSupplierFactory = new DynamicSupplierFactory();
-
+    /* 생략 가능
     public void updateItemQuality(Item item){
-        dynamicSupplierFactory.getInventoryManagement(item.name).updateQuality(item);
-    }
+        DynamicSupplierFactory.getInventoryManagement(item.name).updateQuality(item);
+    }*/
 
 }

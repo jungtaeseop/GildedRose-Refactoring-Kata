@@ -1,19 +1,24 @@
 package com.gildedrose;
 
+import com.gildedrose.gildedDynamicFectory_v2.context.DynamicSupplierFactory;
 import com.gildedrose.gildedDynamicFectory_v2.context.GildedRoseStrategyContext;
 
 class GildedRose {
     Item[] items;
 
-    private GildedRoseStrategyContext gildedRoseStrategyContext = new GildedRoseStrategyContext();
+    // 생략
+    // private GildedRoseStrategyContext gildedRoseStrategyContext = new GildedRoseStrategyContext();
 
     public GildedRose(Item[] items) {
         this.items = items;
     }
 
     public void updateQuality() {
-        for(int i=0; i<items.length; i++){
-            gildedRoseStrategyContext.updateItemQuality(items[i]);
+        for(Item item : items){
+            /* 생략
+              gildedRoseStrategyContext.updateItemQuality(items[i]);
+             */
+            DynamicSupplierFactory.getInventoryManagement(item.name).updateQuality(item);
         }
     }
 

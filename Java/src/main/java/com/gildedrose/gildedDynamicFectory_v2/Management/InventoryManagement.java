@@ -7,12 +7,6 @@ public interface InventoryManagement {
 
     void updateQuality(Item item);
 
-    default void maxQualityValidation(Item item) {
-        if(item.quality > MAX_QUALITY) {
-            item.quality = MAX_QUALITY;
-        }
-    }
-
     default void decrementQualityDaily(Item item) {
         item.quality--;
         if(item.sellIn <= 0) {
@@ -25,7 +19,9 @@ public interface InventoryManagement {
     }
 
     default void increaseQualityDaily(Item item) {
-        item.quality++;
+        if(item.quality < MAX_QUALITY) {
+            item.quality++;
+        }
     }
 
 }
