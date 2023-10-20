@@ -1,7 +1,7 @@
 package com.gildedrose;
 
 
-import com.gildedrose.StrategyPattern.strategyInterface.GildedRoseManagement;
+import com.gildedrose.gildedStrategyPattern_v1.strategyInterface.GildedRoseManagement;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

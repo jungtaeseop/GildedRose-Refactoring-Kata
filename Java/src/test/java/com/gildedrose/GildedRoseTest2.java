@@ -1,12 +1,12 @@
 package com.gildedrose;
 
-import com.gildedrose.StrategyPattern.otherItem2.AgedBrieItem2;
-import com.gildedrose.StrategyPattern.otherItem2.Sulfuras2;
-import com.gildedrose.StrategyPattern.strategyInterface.AgedBrieGildedRoseManagement;
-import com.gildedrose.StrategyPattern.strategyInterface.BasicGildedRoseManagement;
-import com.gildedrose.StrategyPattern.context.GildedRoseStrategy2;
-import com.gildedrose.StrategyPattern.otherItem2.Basic2;
-import com.gildedrose.StrategyPattern.strategyInterface.SulfurasGildedRoseManagement;
+import com.gildedrose.gildedStrategyPattern_v1.otherItem2.AgedBrieItem2;
+import com.gildedrose.gildedStrategyPattern_v1.otherItem2.Sulfuras2;
+import com.gildedrose.gildedStrategyPattern_v1.strategyInterface.AgedBrieGildedRoseManagement;
+import com.gildedrose.gildedStrategyPattern_v1.strategyInterface.BasicGildedRoseManagement;
+import com.gildedrose.gildedStrategyPattern_v1.context.GildedRoseStrategy2;
+import com.gildedrose.gildedStrategyPattern_v1.otherItem2.Basic2;
+import com.gildedrose.gildedStrategyPattern_v1.strategyInterface.SulfurasGildedRoseManagement;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.shadow.com.univocity.parsers.annotations.Nested;
